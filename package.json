@@ -1,0 +1,21 @@
+{
+  "name": "cush-cdn",
+  "version": "0.0.1",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "coffee-build src -o lib",
+    "prepublishOnly": "prepv -i || true"
+  },
+  "dependencies": {
+    "saxon": "^0.1.4",
+    "slush": "aleclarson/slush#3.2.0",
+    "socket-events": "^1.1.2",
+    "sort-obj": "^1.0.0",
+    "wch": "^0.7.2",
+    "yiss": "^0.1.0"
+  },
+  "devDependencies": {
+    "coffeescript": "^2.3.0",
+    "wch-coffee": "^0.2.0"
+  }
+}
