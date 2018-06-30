@@ -136,7 +136,7 @@ class Bucket
       delete @_save
       @_save()
 
-      @watcher = wch.stream root
+      @watcher = wch.stream root, {@only, @skip}
       .on 'data', (file) =>
         if name = @_resolve file.path
           if file.exists then @put name else @delete name
