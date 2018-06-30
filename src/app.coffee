@@ -52,14 +52,17 @@ module.exports = (opts) ->
           res.send result
           return
 
-        missed = bundle.missed.map ([mod, i]) ->
-          {ref, line} = mod.deps[i]
-          {ref, line, mod: bundle.relative mod}
+        error =
+          code: 'BAD_IMPORTS'
+          root: bundle.root.path
+          imports: bundle.missed.map ([mod, i]) ->
+            {ref, line} = mod.deps[i]
+            {ref, line, parent: bundle.relative mod}
 
         res.status 400
-        res.send
-          code: 'BAD_IMPORTS'
-          missed: missed
+        res.send error
+
+        app.emit 'error', error
         return
 
   app.dropProject = (root) ->
