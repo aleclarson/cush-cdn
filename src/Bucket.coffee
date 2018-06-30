@@ -110,7 +110,7 @@ class Bucket
     if name[0] isnt '.' then name else null
 
   _loadAssets: ->
-    fs.write @dest
+    fs.mkdir @dest
 
     manifest = @_dest 'assets.json'
     if fs.isFile manifest
