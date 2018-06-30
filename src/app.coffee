@@ -6,16 +6,18 @@ path = require 'path'
 fs = require 'saxon/sync'
 
 module.exports = (opts) ->
-  {bucketDir} = opts
+  {log, bucketDir} = opts
 
   buckets = Object.create null
   projects = Object.create null
 
   app = slush opts
 
+  app.ready ->
+    log log.coal('[cush-cdn]'), log.lgreen('Server ready!')
+
   if opts.sock
     app.on 'close', ->
-      console.log 'app.close()'
       try fs.remove opts.sock
 
   app.pipe require('./api')(app)
@@ -40,6 +42,9 @@ module.exports = (opts) ->
       bundle = cush.bundle path.join(root, main),
         target: opts.target
         dev: true
+
+      log log.lyellow('Loading bundle:'), bucket.id + '/' + main
+      log ' ', opts
 
       bucket.put opts.name, (res) ->
         result = await bundle.read()
@@ -76,6 +81,9 @@ module.exports = (opts) ->
         Bucket name '#{bucketId}' is taken by:
           #{bucket.root}
       """
+
+    log log.lyellow('Loading bucket:'), bucketId
+    log ' ', opts
 
     opts.dest = path.join bucketDir, bucketId
     buckets[bucketId] = bucket = new Bucket bucketId, opts
