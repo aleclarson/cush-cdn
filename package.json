@@ -11,7 +11,7 @@
     "saxon": "^0.1.4",
     "slush": "aleclarson/slush#3.2.0",
     "socket-events": "^1.1.2",
-    "sort-obj": "^1.0.0",
+    "sort-obj": "aleclarson/sort-obj#1.0.0",
     "wch": "^0.7.2",
     "yiss": "^0.1.0"
   },
