@@ -1,3 +1,4 @@
+mimeTypes = require 'mime-types'
 Router = require 'yiss'
 se = require 'socket-events'
 fs = require 'saxon'
