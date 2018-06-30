@@ -21,6 +21,7 @@ module.exports = (app) ->
     if req.accepts 'text/event-stream'
       req.bucket.events.on '*', se.writer res
       return true
+    return req.bucket._assets
 
   api.PATCH '/b/assets.json', (req) ->
     req.bucket.patch await req.json()
