@@ -30,7 +30,7 @@ module.exports = (app) ->
   api.GET '/b/:asset(.+)', (req, res) ->
     name = req.params.asset
 
-    asset = @get name
+    asset = req.bucket.get name
     asset and=
       if typeof asset is 'string'
       then fs.reader asset
