@@ -1,4 +1,4 @@
-# cush-cdn v0.0.1
+# cush-cdn v0.0.2
 
 Local asset server for development. Built-in support for [cush][1].
 
