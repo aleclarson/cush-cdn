@@ -4,7 +4,9 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "coffee-build src -o lib",
-    "prepublishOnly": "prepv -i || true"
+    "prepublishOnly": "prepv -i || true",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "cush": "^0.1.0",
@@ -14,10 +16,12 @@
     "socket-events": "^1.1.2",
     "sort-obj": "aleclarson/sort-obj#1.0.0",
     "wch": "^0.8.0",
-    "yiss": "^0.1.0"
+    "yiss": "^0.1.0",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "coffeescript": "^2.3.0",
     "wch-coffee": "^0.2.0"
-  }
+  },
+  "snyk": true
 }
