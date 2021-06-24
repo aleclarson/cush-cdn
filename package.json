@@ -7,7 +7,7 @@
     "prepublishOnly": "prepv -i || true"
   },
   "dependencies": {
-    "cush": "^0.1.0",
+    "cush": "^0.2.1",
     "mime-types": "^2.1.18",
     "saxon": "^0.1.4",
     "slush": "aleclarson/slush#3.2.0",
